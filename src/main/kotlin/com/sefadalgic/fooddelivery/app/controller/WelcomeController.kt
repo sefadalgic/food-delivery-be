@@ -1,4 +1,4 @@
-package com.sefadalgic.fooddelivery.app.controllers
+package com.sefadalgic.fooddelivery.app.controller
 
 import lombok.AllArgsConstructor
 import org.springframework.web.bind.annotation.GetMapping
