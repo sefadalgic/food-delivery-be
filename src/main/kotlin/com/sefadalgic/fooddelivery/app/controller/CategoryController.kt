@@ -12,14 +12,15 @@ import org.springframework.web.bind.annotation.RestController
 @CrossOrigin
 @RestController
 @RequestMapping("/category")
-class CategoryController(@Qualifier("categoryService") private val categoryService: CategoryService) {
+class CategoryController(@Qualifier("categoryService") private  val categoryService: CategoryService) {
 
     @GetMapping("/")
     fun getAllCategories(): ApiResponse<List<Category>> {
         val categories = categoryService.getCategories()
         return ApiResponse(
             message = "Categories fetched successfully",
-            data = categories
+            data = categories,
+            success = true
         )
     }
 }

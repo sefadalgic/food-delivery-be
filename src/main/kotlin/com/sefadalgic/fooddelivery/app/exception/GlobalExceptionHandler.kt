@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 @ControllerAdvice
 class GlobalExceptionHandler {
 
-
     @ExceptionHandler
     fun handleException (e: Exception) : ResponseEntity<ApiResponse<Nothing>> {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(

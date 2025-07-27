@@ -18,12 +18,12 @@ class SecurityConfig {
         http
             .csrf { it.disable() }
             .authorizeHttpRequests {
-                it.requestMatchers("/auth/**").permitAll()  // login, register açık
-                it.anyRequest().permitAll() // Geliştirme aşamasında tüm endpoint'leri açık bırak
-                // it.anyRequest().authenticated() // Prod'da bu şekilde koruma altına alabilirsin
+                it.requestMatchers("/auth/**").permitAll()
+                it.anyRequest().permitAll()
+                // it.anyRequest().authenticated()
             }
-            .formLogin { it.disable() } // Spring’in default login formunu kapat
-            .httpBasic { it.disable() } // Basic auth’u da kapat
+            .formLogin { it.disable() }
+            .httpBasic { it.disable() }
         return http.build()
     }
 
