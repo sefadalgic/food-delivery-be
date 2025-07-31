@@ -3,6 +3,7 @@ package com.sefadalgic.fooddelivery.app.entity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
+import jakarta.persistence.Id
 import java.sql.Time
 
 
@@ -10,6 +11,8 @@ import java.sql.Time
 @Table(name = "restaurant", schema = "public")
 data class Restaurant(
 
+    @Column
+    @Id
     val id: Long? = null,
     val name: String,
     val image: String? = null,
