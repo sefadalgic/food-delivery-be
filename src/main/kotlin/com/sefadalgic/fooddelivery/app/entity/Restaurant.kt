@@ -4,6 +4,9 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.JoinTable
+import jakarta.persistence.ManyToMany
 import java.sql.Time
 
 
@@ -37,7 +40,16 @@ data class Restaurant(
     val averageOrderTime: Integer? = null,
 
     @Column(name = "delivery_price")
-    val deliveryPrice: Double? = null
+    val deliveryPrice: Double? = null,
+
+    @ManyToMany
+    @JoinTable(
+        name = "restaurant_category",
+        joinColumns = [JoinColumn(name = "restaurant_id")],
+        inverseJoinColumns = [JoinColumn(name = "category_id")]
+    )
+    val categories: List<Category> = mutableListOf()
+
 
 
 )
